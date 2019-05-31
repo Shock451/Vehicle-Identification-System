@@ -1,5 +1,5 @@
 # VEHICLE IDENTIFICATION SYSTEM
-### Vehicles no longer parked at owners' risk
+### Vehicles no longer parked at owners' risk 🙉
 
 ## OVERVIEW
 **Project Background and Description**  
@@ -93,7 +93,7 @@ npm install
 
 Start the project
 ```
-`npm start`
+npm start
 ```
 Visit `http://localhost:3000` to view the project. Enjoy!
 
