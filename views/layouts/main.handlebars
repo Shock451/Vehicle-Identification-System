@@ -4,23 +4,30 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <title>Cardentify</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    
+
     <meta name="HandheldFriendly" content="True" />
-    
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/fontawesome/css/all.css" />
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body class="{{template}}">
-    <div class="container">
-        {{{body}}}
-    </div>
-    {{> footer}}
+    {{{body}}}
+
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+
+    <script src="/javascripts/script.js"></script>
 </body>
 
 </html>
