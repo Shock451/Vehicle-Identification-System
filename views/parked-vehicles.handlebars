@@ -1,0 +1,49 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+{{>header}}
+<div id="tablePage">
+    <div class="container">
+        <div class="row">
+            <h1 class="col text-center mt-4">
+                Parked Vehicles
+            </h1>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div id="table" class="table-responsive p-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="">Owner</th>
+                        <th class="">Vehicle Name</th>
+                        <th class="">Type</th>
+                        <th class="">Plate</th>
+                        <th class="">Description</th>
+                        <th class="">Email</th>
+                        <th class="">Phone</th>
+                        <th class="">Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr class="row100 body">
+                        <td class="">{{this.owner.name}}</td>
+                        <td class="">{{this.vehicle.name}}</td>
+                        <td class="">{{this.vehicle.vehicleType}}</td>
+                        <td class="">{{this.vehicle.plate}}</td>
+                        <td class="">{{this.vehicle.description}}</td>
+                        <td class="">{{this.owner.username}}</td>
+                        <td class="">{{this.owner.phone}}</td>
+                        <td class="">{{this.duration}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{>footer}}
+
+<script>
+   
+
+</script>

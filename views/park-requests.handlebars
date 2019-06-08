@@ -1,0 +1,113 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+{{>header}}
+<div id="tablePage">
+    <div class="container">
+        <div class="row">
+            <h1 class="col text-center mt-4">
+                Park Requests
+            </h1>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div id="table" class="table-responsive p-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="">Owner</th>
+                        <th class="">Vehicle Name</th>
+                        <th class="">Type</th>
+                        <th class="">Plate</th>
+                        <th class="">Desc</th>
+                        <th class="">Email</th>
+                        <th class="">Phone</th>
+                        <th class="">Operation</th>
+                        <th class="">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr class="row100 body">
+                        <td class="">{{this.user.name}}</td>
+                        <td class="">{{this.vehicle.name}}</td>
+                        <td class="">{{this.vehicle.vehicleType}}</td>
+                        <td class="">{{this.vehicle.plate}}</td>
+                        <td class="">{{this.vehicle.description}}</td>
+                        <td class="">{{this.user.username}}</td>
+                        <td class="">{{this.user.phone}}</td>
+                        <td class="" data-id="{{this.operation}}">
+                            {{#when this.operation 'eq' 1}}
+                                Incoming
+                            {{/when}}
+                            {{#when this.operation 'eq' 2}}
+                                Outgoing
+                            {{/when}}
+                        </td>
+                        <td class="" data-id="{{this._id}}">
+                            <button data-id="{{this.operation}}" class="btn btn-sm btn-success mr-1 accept">Accept</button>
+                            <button data-id="{{this.operation}}" class="btn btn-sm btn-danger ml-1 delete">Decline</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{>footer}}
+
+<script>
+    $(function () {
+
+        $('.delete').click(function () {
+            let id = $(this).parent().data("id");
+            let operation = parseInt($(this).data("id"));
+            
+            $.ajax({
+                type: "POST",
+                url: "/requests/delete",
+                data: JSON.stringify({
+                    "id": id,
+                    "operation": operation
+                }),
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    
+                    Swal.fire(
+                        'Request Declined!',
+                        'Page will reload...',
+                        'success'
+                    )
+                    setTimeout(function () {
+                        location.href = "/park-requests";
+                    }, 2000);
+                },
+            });
+        });
+
+        $('.accept').click(function () {
+            let id = $(this).parent().data("id");
+            let operation = parseInt($(this).data("id"));
+            
+            $.ajax({
+                type: "POST",
+                url: operation == 1? "/requests/acceptIncoming" : "/requests/acceptOutgoing",
+                data: JSON.stringify({
+                    "id": id
+                }),
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    
+                    Swal.fire(
+                        'Request Granted!',
+                        'Page will reload...',
+                        'success'
+                    )
+                    setTimeout(function () {
+                        location.href = "/park-requests";
+                    }, 2000);
+                },
+            });
+        });
+    });
+
+</script>

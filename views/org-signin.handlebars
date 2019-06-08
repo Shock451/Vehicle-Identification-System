@@ -1,13 +1,15 @@
 {{>header}}
 <div id="signup">
     <div class="container">
-        <h1 class="text-center mt-4">
-            Organization
-        </h1>
+        <div class="row">
+            <h1 class="col text-center mt-4">
+                Organization
+            </h1>
+        </div>
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form">
+            <form method="POST" action="/users/login" class="contact100-form validate-form">
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="text" name="email" placeholder="Company email">
+                    <input class="input100" type="text" name="username" placeholder="Email">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -24,7 +26,9 @@
                         </button>
                     </div>
                 </div>
+                <a class="mr-auto ml-auto mt-4" href="/org/signup">Register</a>
             </form>
         </div>
     </div>
 </div>
+{{>footer}}

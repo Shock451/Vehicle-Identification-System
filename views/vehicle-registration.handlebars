@@ -1,0 +1,46 @@
+{{>header}}
+<div id="signup">
+    <div class="container">
+        <div class="row">
+            <h1 class="col text-center mt-4">
+                Vehicle registration
+            </h1>
+        </div>
+        <div class="wrap-contact100">
+            <form method="POST" action="/register-vehicle" class="contact100-form validate-form">
+                <div class="wrap-input100 validate-input" data-validate="Full name is required">
+                    <input class="input100" type="text" name="name" placeholder="Vehicle Name & Year">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Type is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="vehicle_type" placeholder="Vehicle Type">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Plate is required">
+                    <input class="input100" type="text" name="plate" placeholder="Plate Number">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100" style="border: 2px solid #997f94">
+                    <textarea class="input100" type="text" name="description" rows="4" placeholder="Short Description..."></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <input type="checkbox" class="d-none" name="type" />
+
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <button class="contact100-form-btn">
+                            Register Vehicle!
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{{>footer}}

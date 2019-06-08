@@ -1,6 +1,10 @@
-var navBarToggle = document.getElementById('hamburger');
-var navMenu = document.getElementById('nav-menu');
+$(function () {
 
-navBarToggle.addEventListener('click', function () {
-    navMenu.classList.toggle('active');
+    var navBarToggle = document.getElementById('hamburger');
+    var navMenu = document.getElementById('nav-menu');
+
+    navBarToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('active');
+    });
+
 });

@@ -8,8 +8,21 @@
             <ul id="nav-items">
                 <li><a href="/">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Get Started</a></li>
-                <li><a href="#">Premium</a></li>
+                {{#if user}}
+                    {{#when user.usergroup 'eq' 1}}
+                    <li><a href="/park-requests">Park Requests</a></li>
+                    <li><a href="/parked-vehicles">Vehicles</a></li>
+                    {{/when}}
+                    {{#when user.usergroup 'eq' 2}}
+                    <li><a href="/vehicle-registration">Register Vehicle</a></li>
+                    <li><a href="/my-vehicles">My Vehicles</a></li>
+                    {{/when}}
+                <li><a href="/users/logout">Logout</a></li>
+                {{else}}
+                <li><a href="#">FAQS</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+                {{/if}}
             </ul>
         </div>
     </nav>
