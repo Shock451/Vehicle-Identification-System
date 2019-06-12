@@ -14,7 +14,7 @@ var User = require('./models/user');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-mongoose.connect('mongodb://localhost/cardentify', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://kele:11kele22@vis-1yl6n.gcp.mongodb.net/cardentify?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 var app = express();
 
