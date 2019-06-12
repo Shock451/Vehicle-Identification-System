@@ -16,7 +16,7 @@ var usersRouter = require('./routes/users');
 
 mongoose.connect('mongodb+srv://kele:11kele22@vis-1yl6n.gcp.mongodb.net/cardentify?retryWrites=true&w=majority', { useNewUrlParser: true });
 
-var app = express();
+var app = express(); 
 
 var hbs = exphbs.create({
     // Specify helpers which are only registered on this instance.
