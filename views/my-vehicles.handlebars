@@ -31,16 +31,16 @@
                         <td class="" data-id="{{this._id}}">
 
                             {{#when this.status 'eq' 0}}
-                            <button class="btn btn-sm btn-success mr-1 login" data-id="0">Login</button>
+                            <button class="btn btn-sm btn-success mr-1 py-1 login" data-id="0">Login</button>
                             {{/when}}
                             {{#when this.status 'eq' 2}}
-                            <button class="btn btn-sm btn-success mr-1 logout" data-id="2">Logout</button>
+                            <button class="btn btn-sm btn-success mr-1 py-1 logout" data-id="2">Logout</button>
                             {{/when}}
                             {{#when this.status 'eq' 1}}
-                            <button disabled class="btn btn-sm btn-secondary mr-1">Pending</button>
+                            <button disabled class="btn btn-sm btn-secondary mr-1 py-1">Pending</button>
                             {{/when}}
 
-                            <button class="btn btn-sm btn-danger ml-1 delete">Delete</button>
+                            <button class="btn btn-sm btn-danger ml-1 py-1 delete">Delete</button>
                         </td>
                     </tr>
                     {{/each}}
