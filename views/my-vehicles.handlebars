@@ -8,55 +8,45 @@
             </h1>
         </div>
     </div>
-    <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table100 ver5 m-b-110">
-                    <div class="table100-head">
-                        <table>
-                            <thead>
-                                <tr class="row100 head">
-                                    <th class="cell100 column1">Vehicle Name</th>
-                                    <th class="cell100 column2">Description</th>
-                                    <th class="cell100 column3">Vehicle Type</th>
-                                    <th class="cell100 column4">License Plate</th>
-                                    <th class="cell100 column5">Action</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
+    <div class="container-fluid">
+        <div id="table" class="table-responsive p-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Vehicle Name</th>
+                        <th>Description</th>
+                        <th>Vehicle Type</th>
+                        <th>License Plate</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
 
-                    <div class="table100-body">
-                        <table>
-                            <tbody>
-                                {{#each data}}
-                                <tr class="row100 body">
-                                    <td class="cell100 column1">{{this.name}}</td>
-                                    <td class="cell100 column2">{{this.description}}</td>
-                                    <td class="cell100 column3">{{this.vehicleType}}</td>
-                                    <td class="cell100 column4">{{this.plate}}</td>
-                                    <td class="cell100 column5" data-id="{{this._id}}">
+                <tbody>
+                    {{#each data}}
+                    <tr class="row100 body">
+                        <td class="">{{this.name}}</td>
+                        <td class="">{{this.description}}</td>
+                        <td class="">{{this.vehicleType}}</td>
+                        <td class="">{{this.plate}}</td>
+                        <td class="" data-id="{{this._id}}">
 
-                                        {{#when this.status 'eq' 0}}
-                                        <button class="btn btn-sm btn-success mr-1 login" data-id="0">Login</button>
-                                        {{/when}}
-                                        {{#when this.status 'eq' 2}}
-                                        <button class="btn btn-sm btn-success mr-1 logout" data-id="2">Logout</button>
-                                        {{/when}}
-                                        {{#when this.status 'eq' 1}}
-                                        <button disabled class="btn btn-sm btn-secondary mr-1">Pending</button>
-                                        {{/when}}
+                            {{#when this.status 'eq' 0}}
+                            <button class="btn btn-sm btn-success mr-1 login" data-id="0">Login</button>
+                            {{/when}}
+                            {{#when this.status 'eq' 2}}
+                            <button class="btn btn-sm btn-success mr-1 logout" data-id="2">Logout</button>
+                            {{/when}}
+                            {{#when this.status 'eq' 1}}
+                            <button disabled class="btn btn-sm btn-secondary mr-1">Pending</button>
+                            {{/when}}
 
-                                        <button class="btn btn-sm btn-danger ml-1 delete">Delete</button>
-                                    </td>
-                                </tr>
-                                {{/each}}
+                            <button class="btn btn-sm btn-danger ml-1 delete">Delete</button>
+                        </td>
+                    </tr>
+                    {{/each}}
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -75,7 +65,7 @@
                 }),
                 contentType: "application/json; charset=utf-8",
                 success: function (response) {
-                    
+
                     Swal.fire(
                         'Deleted!',
                         'Page will reload...',
@@ -89,7 +79,7 @@
         });
 
         $('.login, .logout').click(function () {
-            
+
             let id = $(this).parent().data("id");
             let button_type = parseInt($(this).data("id"));
             let message, success_msg;
@@ -119,7 +109,7 @@
                             '',
                             'success'
                         )
-                        
+
                         $.ajax({
                             type: "POST",
                             url: "/request/create",
